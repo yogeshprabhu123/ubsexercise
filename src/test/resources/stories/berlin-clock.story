@@ -44,5 +44,44 @@ RRRR
 OOOOOOOOOOO
 OOOO
 
+Scenario: Afternoon
+When the time is 12:00:00
+Then the clock should look like
+Y
+RROO
+RROO
+OOOOOOOOOOO
+OOOO
+
+Scenario: Just after midnight
+When the time is 01:01:01
+Then the clock should look like
+O
+OOOO
+ROOO
+OOOOOOOOOOO
+YOOO
+
+Scenario: Missing Hours, Minutes or Seconds
+When the time is 01:01
+Then the clock should display
+null
+
+Scenario: Characters in Input Time
+When the time is 01:AB
+Then the clock should look like
+null
+
+Scenario: Hours, Minutes or Seconds out of bounds
+When the time is 25:61:61
+Then the clock should look like
+null
+
+Scenario: Input Time is NULL
+When the time is null
+Then the clock should look like
+null
+
+
 
 
